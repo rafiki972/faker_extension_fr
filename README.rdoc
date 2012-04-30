@@ -1,0 +1,114 @@
+= FakerExtensionFr
+
+
+French names and formats built on top of the Faker gem. 
+Currently with 
+ * Common French first and last names
+ * French addresses 
+ * French zipcodes and city names 
+ * French phone numbers
+
+Installation  ( gem faker   # must be installed )
+============
+gem faker_extension_fr
+
+Examples
+=======
+
+Standard Faker
+Faker::Lorem.paragraph
+Faker::Lorem.sentence
+Faker::Lorem.words(3).join(',')
+
+
+You can get city data generated :
+1- Anywhere in France
+Faker::Address.fr_zip_and_city => ["43490", "Lafarre", "44.8427", "3.9897", "4"]
+2- In a specific Region
+Faker::Address.fr_zip_and_city_in_region(5) => ["29890", "Goulven", "48.6289", "-4.2994", "2"]
+3- In a specific Area ( French 'Département' )
+Faker::Address.fr_zip_and_city_in_area("2A")  => ["20111", "Calcatoggio", "42.0287", "8.7681", "4"]
+
+Names are generated for female and male, with or without title
+
+User.populate 100 do |person|
+  person.name      = Faker::Name.fr_first_name_f               #  =>  "Christine"
+  person.name      = Faker::Name.fr_first_name_m               #  =>  "Pierre"
+  person.name      = Faker::Name.fr_last_name                  #  =>  "Leger"
+  person.name      = Faker::Name.fr_name                       #  =>  "Simon Maire"  ou  "Juliana Leduc"
+  person.name      = Faker::Name.fr_name_and_title             #  =>  "Mme Nadine Delattre"  ou  "Mr Paul Bouvier"
+  person.homephone = Faker::PhoneNumber.fr_phone_number
+  person.cellphone = Faker::PhoneNumber.fr_cellphone_number    
+  city_data        = Faker::Address.fr_zip_and_city_in_region(10)
+  person.zipcode   = city_data[0]   						   # => "78930"
+  person.city      = city_data[1]							   # => "Goussonville"
+  latitude         = city_data[2]							   # => "48.9201"
+  longitude        = city_data[3]							   # => "1.7644"
+  phone_area_code  = city_data[4]							   # => "1"
+end
+
+You can also use directly :
+
+Faker::Address.fr_city  => "Arles" 
+Faker::Address.fr_zip_code  => "39380" 
+Faker::Address.fr_coordinates  => ["43.25", "6.21"] 
+Faker::Address.fr_phone_area  => "5" 
+
+
+
+PHONE NUMBERS
+
+Faker::PhoneNumber.fr_phone_number => "0323822287"   (anywhere in France)
+Faker::PhoneNumber.fr_phone_number_intl  => "+33(0)357506949"  (anywhere in France)
+
+Faker::PhoneNumber.fr_phone_number_in_region(10) => "0159636104" 
+Faker::PhoneNumber.fr_phone_number_intl_in_region(10) => "+33(0)198436968
+
+Faker::PhoneNumber.fr_phone_number_in_area("2A")  => "0413776409"  
+Faker::PhoneNumber.fr_phone_number_intl_in_area("2A") => "+33(0)438380737" 
+
+Faker::PhoneNumber.fr_cellphone_number  => "+33(06)6211670" or  "(06)5903231"
+Faker::PhoneNumber.fr_cellphone_number  => "(06)5903231"
+Faker::PhoneNumber.fr_cellphone_number_intl  => "+33(06)6211670"
+
+
+             
+REGION TABLE ( France Métropolitaine)
+
+#	REGIONS (region)		DEPARTEMENTS (area)
+1	Alsace   				Bas-Rhin (67) Haut-Rhin (68)
+2	Aquitaine				Dordogne (24), Gironde (33) ,Landes (40), Lot-et-Garonne (47), Pyrénées-Atlantiques (64)
+3	Auvergne				Allier (03), Cantal (15), Haute-Loire (43), Puy-de-Dôme (63)
+4	Bourgogne				Côte-d'Or (21), Nièvre (58), Saône-et-Loire (71), Yonne (89)
+5	Bretagne				Côtes-d'Armor (22), Finistère (29), Ille-et-Vilaine (35), Morbihan (56)
+6	Centre					Cher (18),Eure-et-Loir (28), Indre (36), Indre-et-Loire (37), Loir-et-Cher (41), Loiret (45)
+7	Champagne-Ardennes		Ardennes (08), Aube (10), Marne (51), Haute-Marne (52)
+8	Corse					Corse-du-Sud (2A), Haute-Corse (2B)
+9	Franche-Comté			Doubs (25), Jura (39), Haute-Saône (70), Territoire de Belfort (90)
+
+10	Ile-de-France			Paris (75), Essonne (91), Hauts-de-Seine (92), Seine-Saint-Denis (93), Seine-et-Marne (77), Val-de-Marne (94), Val-d'Oise (95), Yvelines (78)
+
+11	Languedoc-Roussillon	Aude (11),Gard (30), Hérault (34), Lozère (48), Pyrénées-Orientales (66)
+12	Limousin				Corrèze (19), Creuse (23), Haute-Vienne (87)
+13	Lorraine				Meurthe-et-Moselle (54), Meuse (55), Moselle (57), Vosges (88)
+
+14	Midi-Pyrénées			Ariège (09), Aveyron (12), Haute-Garonne (31), Gers (32), Lot (46), Hautes-Pyrénées (65), Tarn (81), Tarn-et-Garonne (82)
+
+15	Nord-Pas-de-Calais		Nord (59), Pas-de-Calais (62)
+16	Basse-Normandie			Calvados (14), Manche (50), Orne (61)
+17	Haute-Normandie			Eure (27), Seine-Maritime (76)
+18 	Pays de la Loire		Loire-Atlantique (44), Maine-et-Loire (49), Mayenne (53), Sarthe (72), Vendée (85)
+19	Picardie				Aisne (02), Oise (60), Somme (80)
+20	Poitou-Charentes		Charente (16), Charente-Maritime (17), Deux-Sèvres (79), Vienne (86)
+
+21	Provence-Alpes-Côte d'Azur		Alpes-de-Haute-Provence (04), Hautes-Alpes (05), Alpes-Maritimes (06), Bouches-du-Rhône (13), Var (83), Vaucluse (84)
+
+22	Rhône-Alpes				Ain (01), Ardèche (07), Drôme (26), Isère (38), Loire (42), Rhône (69), Savoie (73), Haute-Savoie (74)
+
+
+
+
+
+
+
+This project rocks and uses MIT-LICENSE.
