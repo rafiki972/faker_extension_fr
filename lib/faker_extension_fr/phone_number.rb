@@ -31,9 +31,6 @@ module Faker
       end
 
 
-      def fr_cellphone_number
-        Faker::Base.numerify(Cellphone_formats.sample)
-      end
       def fr_cellphone_number_intl
         Faker::Base.numerify(Cellphone_formats_intl.sample)
       end
@@ -42,10 +39,9 @@ module Faker
       end
     end
 
-    Phone_formats = [  '01########', '02########', '03########', '04########', '05########' ]
+    Phone_formats_fr = [  '01########', '02########', '03########', '04########', '05########' ]
     Phone_formats_intl = [  '+33(0)1########', '+33(0)2########', '+33(0)3########', '+33(0)4########', '+33(0)5########' ]
   	
-    Cellphone_formats = [ '+33(06)#######', '(06)#######' ]
     Cellphone_formats_intl = [ '+33(06)#######' ]
     Cellphone_formats = [ '(06)#######' ]
   end
