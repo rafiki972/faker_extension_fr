@@ -22,12 +22,15 @@ Faker::Lorem.words(3).join(',')
 
 
 You can get city data generated :
+
 1- Anywhere in France
 Faker::Address.fr_zip_and_city => ["43490", "Lafarre", "44.8427", "3.9897", "4"]
 2- In a specific Region
 Faker::Address.fr_zip_and_city_in_region(5) => ["29890", "Goulven", "48.6289", "-4.2994", "2"]
 3- In a specific Area ( French 'Département' )
 Faker::Address.fr_zip_and_city_in_area("2A")  => ["20111", "Calcatoggio", "42.0287", "8.7681", "4"]
+4- Street addresses with celebrities
+Faker::Address.fr_street_name  => "21, Place Ségur
 
 Names are generated for female and male, with or without title
 

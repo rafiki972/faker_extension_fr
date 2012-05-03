@@ -4,6 +4,10 @@ module Faker
   class Address
 
     class << self
+      
+      def fr_street_name
+        rand(1..99).to_s + ", " + Fr_street_prefix.sample.capitalize + " " + Fr_street_root.sample
+      end
 
       def fr_zip_code
         fr_zip_and_city[0]
@@ -31,13 +35,16 @@ module Faker
         region = 1 if region < 1 || region > 22
         area = Fr_Regions[region - 1].sample
         fr_zip_and_city_in_area(area)
-        end 
+      end 
 
       def fr_zip_and_city_in_area(area="67")
         # default to area "67" if invalid
         area = "67" if  Fr_zip_cities[area].nil?
         Fr_zip_cities[area].sample
-      end 
+      end
+      
+      Fr_street_prefix = ["rue", "place", "boulevard", "avenue", "impasse", "chemin"]
+      Fr_street_root = ["Agatha Christie", "Agrippa d'Aubigné", "Alain Fournier", "Alain René Lesage", "Alain Robbe-Grillet", "Albert Camus", "Albert Cohen", "Albrecht Altdorfer", "Albrecht Dürer", "Alphonse Allais", "Alphonse Daudet", "Anacréon", "Andersen", "Andra del Verrochio", "André Breton", "André Chouraqui", "André Derain", "André Malraux", "André Masson", "Andrea del sarto", "Andrea Mantegna", "Andrée Chedid", "Andy Warhol", "Anthony Burgess", "Antoine Pevsner", "Antoine Van Dyck", "Antoine Watteau", "Anton Tchekhov", "Antonin Artaud", "Arcimboldo", "Aristophane", "August Strindberg", "Auguste Renoir", "Balthus", "Barbey d'Aurevilly", "Beaumarchais", "Bellini", "Benjamin Constant", "Bernardin de Saint-Pierre", "Bertolt Brecht", "Blaise Cendrars", "Boccace", "Boris Vian", "Bossuet", "Camille Pissarro", "Canaletto", "Casanova", "Caspar David Friedrich", "Céline", "Chamfort", "Chandler", "Charles Le Brun", "Charles-Ferdinand Ramuz", "Charlotte Brontë", "Claude Crébillon", "Colette", "Constant Permeke", "Curzio Malaparte", "Cyrano de Bergerac", "Dante Alighieri", "de l'Isle-Adam", "Diego Velázquez", "Dubuffet", "Edmond Rostand", "Edouard Manet", "Edouard Vuillard", "Elie Wiesel", "Elizabeth Vigée-Lebrun", "Elsa Triolet", "Emil Michel Cioran", "Émile Littré", "Emile Verhaeren", "Emile Zola", "Emily Brontë", "Ernest Renan", "Eugène Boudin", "Eugène Sue", "Félix Lope de Vega", "Félix Valloton", "Fenimore Cooper", "Fernand Léger", "Filippo Lippi", "Flora Tristan", "Fra Angelico", "Fragonard", "Francis Bacon", "Francis Picabia", "Frank Kupka", "Frank Wedekind", "Frédéric Dard", "Gabriele D'Annunzio", "Gaston Leroux", "Georg Büchner", "George Sand", "Georges Bataille", "Georges Bernanos", "Georges Braque", "Georges Courteline", "Georges De La Tour", "Géricault", "Ghirlandajo", "Giorgione", "Goethe", "Guido René", "Hans Arp", "Hector Malot", "Henri Matisse", "Henri-Frédéric Amiel", "Henry Barbusse", "Herbert George Wells", "Hervé Bazin", "Honoré d'Urfé", "Honoré de Balzac", "Isaac Asimov", "Italo Calvino", "Italo Svevo", "Ivan Tourgueniev", "Jack London", "Jackson Pollock", "Jacques Amyot", "Jacques Audiberti", "Jacques Callot", "James Ensor", "James Whistler", "Jan Van Eyck", "Jean Anouilh", "Jean Cocteau", "Jean Fouquet", "Jean Lurçat", "Jean-Baptiste Oudry", "Jean-François Regnard", "Jean-Jacques Rousseau", "Jean-Paul Delvaux", "Jérôme Bosch", "Jonathan Swift", "Jorge Luis Borges", "Joseph Conrad", "Joshua Reynolds", "Jules Renard", "Jules Supervielle", "Jules Vallès", "Jules Verne", "Karel Capek", "Kazimir Malevitch", "Le Lorrain", "Le Primatice", "Le Tintoret", "Léon Bloy", "Léon Tolstoï", "Léonard de Vinci", "Lessing", "Lewis Carroll", "Lorenzetti", "Louis Abel-Truchet", "Louis Aragon", "Marc Levy", "Marcel Aymé", "Marcel Duchamp", "Marguerite Yourcenar", "Mario Vargas Llosa", "Mark Twain", "Maurice Barrès", "Maurice de Vlaminck", "Maurice Denis", "Maurice Maeterlinck", "Maurice Quentin De La Tour", "Maurice Utrillo", "Max Ernst", "Michel Butor", "Michel Leiris", "Michel Tournier", "Miguel De Cervantès", "Mikhaïl Boulgakov", "Mikhaïl Lermontov", "Nadjib Mahfuz", "Nathalie Sarraute", "Nicolas Boileau", "Nicolas Poussin", "Nicolas Restif de la Bretonne", "Odilon Redon", "Oscar Wilde", "Pablo Picasso", "Paolo Ucello", "Paul Gauguin", "Paul Scarron", "Paul Valéry", "Pedro Calderón", "Pierre Alechinsky", "Pierre Bayle", "Pierre Bonnard", "Pierre Corneille", "Pierre Loti", "Pierre Mac Orlan", "Pieter Bruegel", "Pisanello", "Primo Levi", "R.D. Bradbury", "Raoul Dufy", "Raphaël", "Rembrandt", "René Magritte", "Richard Wright", "Robert Rauschenberg", "Rogier Van der Weyden", "Roland Barthes", "Romain Rolland", "Saint-Evremond", "Saint-Simon", "Sainte-Beuve", "Samuel Beckett", "Samuel Richardson", "Sandro Botticelli", "Ségur", "Serge Poliakoff", "Sévigné", "Simon Vouet", "Simone de Beauvoir", "Edward Burne-Jones", "Walter Scott", "Stefan Zweig", "Tahar Ben Jelloun", "Tennessee Williams", "Thomas Gainsborough", "Thomas Mann", "Thoreau", "Tirso de Molina", "Tolkien", "Tomas Bernhard", "Tommaso Masaccio", "Toulouse-Lautrec", "Tristan Tzara", "Van Loo", "Vercors", "Vermeer", "Véronèse", "Victor Segalen", "Vincent Van Gogh", "Virginia Woolf", "Vittorio Alfieri", "Voltaire", "Wieland", "William Burroughs", "William Butler Yeats", "William Turner"]
 
       Fr_Regions = [
         ["67", "68"],["24", "33", "40", "47", "64"],["03", "15", "43", "63"], ["21", "58", "71", "89"],["22", "29", "35", "56"],["18", "28", "36", "37", "41", "45"],
