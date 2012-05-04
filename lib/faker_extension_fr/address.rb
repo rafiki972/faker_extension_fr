@@ -28,17 +28,16 @@ module Faker
         fr_zip_and_city_in_region(region-1)
       end 
 
-      def fr_zip_and_city_in_region(region=1)
-        # default to region 1 if invalid
-        region = 1 if region < 1 || region > 22
+      def fr_zip_and_city_in_region(region=nil)
+        region = rand(1..22) if (region.nil? || region.to_i < 1 || region.to_i > 22)
         area = Fr_Regions[region - 1].sample
         fr_zip_and_city_in_area(area)
       end 
 
-      def fr_zip_and_city_in_area(area="67")
-        # default to area "67" if invalid
-        area = "67" if  Fr_zip_cities[area].nil?
-        Fr_zip_cities[area].sample
+      def fr_zip_and_city_in_area(area=nil)
+        area = "%02d" % rand(1..95) if (area.nil? || area.to_i < 1 || area.to_i > 95)
+        area = %w{2A 2B}.sample if area == "20" # excepted Corsica
+        Fr_zip_cities[area.to_s].sample
       end
       
       Fr_street_prefix = ["rue", "place", "boulevard", "avenue", "impasse", "chemin"]

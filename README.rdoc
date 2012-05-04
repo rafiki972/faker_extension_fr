@@ -136,7 +136,6 @@ Faker::Company.fr_ape("21")  => ["212E", "Fabrication d'articles en papier à us
 if the ape_code doesn't exist, then a random code will be returned ...
 
 
-
 SECTEURS NAF INSEE
 01	Agriculture, chasse, services annexes          
 02	Sylviculture, exploitation forestière, services annexes         
@@ -200,5 +199,20 @@ SECTEURS NAF INSEE
 96	Activités indifférenciées des ménages en tant que producteurs de biens pour usage propre 
 97	Activités indifférenciées des ménages en tant que producteurs de services pour usage propre 
 99	Activités extra territoriales           
+
+
+BANK & BANK ACCOUNT
+
+Faker::Company.fr_bank   => ["BNP Paribas", "20, Impasse Eugène Sue", "33540", "Mauriac", "44.7453", "-0.0295", "5", "30004", "BNPAFRPP"]
+this returns :
+Bank name, bank street address, bank zipcode, bank city, bank longitude, tel_area, bank latitude, bank IBAN, bank BIC
+
+Faker::Company.fr_bank_account => ["Crédit Agricole", "8, Place Saint-Simon", "64870", "Escou", "43.1833", "-0.5333", "5", "18206", "00083", "00000576342 13", "FR43 1820 6000 8300 0005 7634 213", "FRAGRIFRPPESC"] 
+
+this returns :
+Bank name, bank street address, bank zipcode, bank city, bank longitude, bank latitude, tel area, 
+then current account RIB : bank number, bank agency, account number, account IBAN, account BIC SWIFT
+
+
 
 This project rocks and uses MIT-LICENSE.
