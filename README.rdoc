@@ -109,9 +109,96 @@ REGION TABLE ( France Métropolitaine)
 22	Rhône-Alpes				Ain (01), Ardèche (07), Drôme (26), Isère (38), Loire (42), Rhône (69), Savoie (73), Haute-Savoie (74)
 
 
+FRENCH COMPANIES
+
+Faker::Company.fr_name  => "Libero SA" 
+
+siren = Faker::Company.fr_siren => "423240936"    # 8 digits + 1 checksum digit according to Luhn algorithm
+#  you can format the siren nuber using : siren.scan(/.{1,3}/).join(' ')  => "423 240 936"
+
+SIRET number  based on SIREN + NIC (Internal sequential number in the company)
+siret = Faker::Company.fr_siret(siren)  =>  "42324093600017"  # 13 digits + 1 checksum digit according to Luhn algorithm
+siret = Faker::Company.fr_siret(siren, 3)   => "42324093600033"  third office of the company
+
+VAT NUMBER,  FR+key + SIREN, key based on SIREN number
+Faker::Company.fr_vat_numbert(siren)  => "FR95 423240936" 
+
+RCS REGISTRATION
+Faker::Company.fr_rcs(83) => "Draguignan" 
+Faker::Company.fr_rcs("2A") => "Ajaccio" 
+
+APE CODE & LABEL
+Faker::Company.fr_ape   => ["950Z", "Services domestiques"]
+
+Faker::Company.fr_ape(21)  => ["212E", "Fabrication d'articles en papier à usage sanitaire ou domestique"] 
+Faker::Company.fr_ape("21")  => ["212E", "Fabrication d'articles en papier à usage sanitaire ou domestique"] 
+
+if the ape_code doesn't exist, then a random code will be returned ...
 
 
 
-
+SECTEURS NAF INSEE
+01	Agriculture, chasse, services annexes          
+02	Sylviculture, exploitation forestière, services annexes         
+05	Pêche, aquacultures            
+10	Extraction de houille, de lignite et de tourbes      
+11	Extraction d'hydrocarbures, services annexes          
+12	Extraction de minerais d'uraniums          
+13	Extraction de minerais metalliques          
+14	Autres industries extractives           
+15	Industries alimentaires            
+16	Industrie du tabac           
+17	Industrie textiles            
+18	Industrie de l'habillement et des fourrures        
+19	Industrie du cuir et de la chaussures       
+20	Travail du bois et fabrication d'articles en bois      
+21	Industrie du papier et du cartons        
+22	Edition, imprimerie, reproductions           
+23	Cokefaction, raffinage, industries nucléaires          
+24	Industrie chimique            
+25	Industrie du caoutchouc et des plastiques        
+26	Fabrication d'autres produits mineraux non metalliques        
+27	Metallurgies             
+28	Travail des métaux           
+29	Fabrication de machines et équipements         
+30	Fabrication de machines de bureau et de matériel informatiques     
+31	Fabrication de machines et appareils électriques        
+32	Fabrication d'équipements de radio, télévision et communications      
+33	Fabrication d'instruments médicaux, de précision, d'optique et d'horlogerie      
+34	Industrie automobiles            
+35	Fabrication d'autres matériels de transports         
+36	Fabrication de meubles; industries diverses         
+37	Récupérations             
+40	Production et distribution d'électricité, de gaz et de chaleurs     
+41	Captage, traitement et distribution d'eau         
+45	Constructions             
+50	Commerce et réparation automobiles          
+51	Commerce de gros et intermédiaires du commerces       
+52	Commerce de détail et réparation d'articles domestiques       
+55	Hôtels et restaurants           
+60	Transports terrestres            
+61	Transports par eaux           
+62	Transports aériens            
+63	Services auxilliaires des transports          
+64	Postes et télécommunications          
+65	Intermédiation financières            
+66	Assurances             
+67	Auxiliaires financiers et d'assurances          
+70	Activités immobilières            
+71	Location sans opérateurs           
+72	Activités informatiques            
+73	Recherche et développements          
+74	Services fournis principalement aux entreprises         
+75	Administration publiques            
+80	Education             
+85	Santé et action sociales          
+90	Assainissement, voierie et gestion des déchets        
+91	Activités associatives            
+92	Activités récréatives, culturelles et sportives         
+93	Services personnels            
+95	Services domestiques            
+96	Activités indifférenciées des ménages en tant que producteurs de biens pour usage propre 
+97	Activités indifférenciées des ménages en tant que producteurs de services pour usage propre 
+99	Activités extra territoriales           
 
 This project rocks and uses MIT-LICENSE.

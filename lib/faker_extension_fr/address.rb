@@ -1,8 +1,6 @@
 # encoding: utf-8
 module Faker
-
   class Address
-
     class << self
       
       def fr_street_name
