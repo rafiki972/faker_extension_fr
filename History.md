@@ -1,4 +1,9 @@
 # Change History / Release Notes
+
+## Version 0.0.7
+* changed Phone constant labels   _formats to _formats_fr and _formats_fr_intl
+
+
 ## Version 0.0.6
 * changed BIC code . La Banque Postale to PSSTFRPP
 
