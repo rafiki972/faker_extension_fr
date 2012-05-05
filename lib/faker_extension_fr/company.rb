@@ -66,7 +66,7 @@ module Faker
         iban_account_6 = "#{bank_account[6,4]} "
         iban_account_7 = "#{bank_account[10,1]}#{bank_account[12,2]}"
         iban_account = iban_account_1 + iban_account_2 + iban_account_3 + iban_account_4 + iban_account_5 + iban_account_6 + iban_account_7
-        bic_swift = "FR#{bank_bic}#{bank_location[1][0,3].upcase}"
+        bic_swift = "FR#{bank_bic}#{I18n.transliterate(bank_location[1][0,3]).upcase}"
         [bank_name, bank_address, bank_location, bank_iban, bank_office, bank_account, iban_account, bic_swift ].flatten       
       end
 
