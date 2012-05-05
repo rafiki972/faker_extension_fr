@@ -23,7 +23,7 @@ module Faker
 
       def fr_phone_number_in_area(area)
         phone_area_code = Faker::Address.fr_zip_and_city_in_area(area)[4].to_i
-        Faker::Base.numerify(Phone_formats[phone_area_code - 1])
+        Faker::Base.numerify(Phone_formats_fr[phone_area_code - 1])
       end
       def fr_phone_number_intl_in_area(area)
         phone_area_code = Faker::Address.fr_zip_and_city_in_area(area)[4].to_i
