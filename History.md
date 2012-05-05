@@ -1,4 +1,6 @@
 # Change History / Release Notes
+## Version 0.0.6
+* changed BIC code . La Banque Postale to PSSTFRPP
 
 ## Version 0.0.5
 * added `fr_bank` and `fr_bank_account` 
