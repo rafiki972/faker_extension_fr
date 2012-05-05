@@ -1,0 +1,90 @@
+REGION TABLE ( France Métropolitaine)
+
+#	REGIONS (region)		DEPARTEMENTS (area)
+1	Alsace   				Bas-Rhin (67) Haut-Rhin (68)
+2	Aquitaine				Dordogne (24), Gironde (33) ,Landes (40), Lot-et-Garonne (47), Pyrénées-Atlantiques (64)
+3	Auvergne				Allier (03), Cantal (15), Haute-Loire (43), Puy-de-Dôme (63)
+4	Bourgogne				Côte-d'Or (21), Nièvre (58), Saône-et-Loire (71), Yonne (89)
+5	Bretagne				Côtes-d'Armor (22), Finistère (29), Ille-et-Vilaine (35), Morbihan (56)
+6	Centre					Cher (18),Eure-et-Loir (28), Indre (36), Indre-et-Loire (37), Loir-et-Cher (41), Loiret (45)
+7	Champagne-Ardennes		Ardennes (08), Aube (10), Marne (51), Haute-Marne (52)
+8	Corse					Corse-du-Sud (2A), Haute-Corse (2B)
+9	Franche-Comté			Doubs (25), Jura (39), Haute-Saône (70), Territoire de Belfort (90)
+10	Ile-de-France			Paris (75), Essonne (91), Hauts-de-Seine (92), Seine-Saint-Denis (93), Seine-et-Marne (77), Val-de-Marne (94), Val-d'Oise (95), Yvelines (78)
+11	Languedoc-Roussillon	Aude (11),Gard (30), Hérault (34), Lozère (48), Pyrénées-Orientales (66)
+12	Limousin				Corrèze (19), Creuse (23), Haute-Vienne (87)
+13	Lorraine				Meurthe-et-Moselle (54), Meuse (55), Moselle (57), Vosges (88)
+14	Midi-Pyrénées			Ariège (09), Aveyron (12), Haute-Garonne (31), Gers (32), Lot (46), Hautes-Pyrénées (65), Tarn (81), Tarn-et-Garonne (82)
+15	Nord-Pas-de-Calais		Nord (59), Pas-de-Calais (62)
+16	Basse-Normandie			Calvados (14), Manche (50), Orne (61)
+17	Haute-Normandie			Eure (27), Seine-Maritime (76)
+18 	Pays de la Loire		Loire-Atlantique (44), Maine-et-Loire (49), Mayenne (53), Sarthe (72), Vendée (85)
+19	Picardie				Aisne (02), Oise (60), Somme (80)
+20	Poitou-Charentes		Charente (16), Charente-Maritime (17), Deux-Sèvres (79), Vienne (86)
+21	Provence-Alpes-Côte d'Azur		Alpes-de-Haute-Provence (04), Hautes-Alpes (05), Alpes-Maritimes (06), Bouches-du-Rhône (13), Var (83), Vaucluse (84)
+22	Rhône-Alpes				Ain (01), Ardèche (07), Drôme (26), Isère (38), Loire (42), Rhône (69), Savoie (73), Haute-Savoie (74)
+
+SECTEURS NAF INSEE  (used with APE code)
+01	Agriculture, chasse, services annexes          
+02	Sylviculture, exploitation forestière, services annexes         
+05	Pêche, aquacultures            
+10	Extraction de houille, de lignite et de tourbes      
+11	Extraction d'hydrocarbures, services annexes          
+12	Extraction de minerais d'uraniums          
+13	Extraction de minerais metalliques          
+14	Autres industries extractives           
+15	Industries alimentaires            
+16	Industrie du tabac           
+17	Industrie textiles            
+18	Industrie de l'habillement et des fourrures        
+19	Industrie du cuir et de la chaussures       
+20	Travail du bois et fabrication d'articles en bois      
+21	Industrie du papier et du cartons        
+22	Edition, imprimerie, reproductions           
+23	Cokefaction, raffinage, industries nucléaires          
+24	Industrie chimique            
+25	Industrie du caoutchouc et des plastiques        
+26	Fabrication d'autres produits mineraux non metalliques        
+27	Metallurgies             
+28	Travail des métaux           
+29	Fabrication de machines et équipements         
+30	Fabrication de machines de bureau et de matériel informatiques     
+31	Fabrication de machines et appareils électriques        
+32	Fabrication d'équipements de radio, télévision et communications      
+33	Fabrication d'instruments médicaux, de précision, d'optique et d'horlogerie      
+34	Industrie automobiles            
+35	Fabrication d'autres matériels de transports         
+36	Fabrication de meubles; industries diverses         
+37	Récupérations             
+40	Production et distribution d'électricité, de gaz et de chaleurs     
+41	Captage, traitement et distribution d'eau         
+45	Constructions             
+50	Commerce et réparation automobiles          
+51	Commerce de gros et intermédiaires du commerces       
+52	Commerce de détail et réparation d'articles domestiques       
+55	Hôtels et restaurants           
+60	Transports terrestres            
+61	Transports par eaux           
+62	Transports aériens            
+63	Services auxilliaires des transports          
+64	Postes et télécommunications          
+65	Intermédiation financières            
+66	Assurances             
+67	Auxiliaires financiers et d'assurances          
+70	Activités immobilières            
+71	Location sans opérateurs           
+72	Activités informatiques            
+73	Recherche et développements          
+74	Services fournis principalement aux entreprises         
+75	Administration publiques            
+80	Education             
+85	Santé et action sociales          
+90	Assainissement, voierie et gestion des déchets        
+91	Activités associatives            
+92	Activités récréatives, culturelles et sportives         
+93	Services personnels            
+95	Services domestiques            
+96	Activités indifférenciées des ménages en tant que producteurs de biens pour usage propre 
+97	Activités indifférenciées des ménages en tant que producteurs de services pour usage propre 
+99	Activités extra territoriales           
+
