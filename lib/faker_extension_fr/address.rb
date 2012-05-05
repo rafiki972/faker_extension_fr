@@ -36,8 +36,8 @@ module Faker
 
       def fr_zip_and_city_in_area(area=nil)
         area = "%02d" % rand(1..95) if (area.nil? || area.to_i < 1 || area.to_i > 95)
-        area = %w{2A 2B}.sample if area == "20" # excepted Corsica
-        area = "%02d" % area if area < 10
+        area = %w{2A 2B}.sample if area.to_i == 20 # excepted Corsica
+        area = "%02d" % area if area.to_i < 10
         Fr_zip_cities[area.to_s].sample
       end
       

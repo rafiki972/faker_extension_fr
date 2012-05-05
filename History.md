@@ -1,4 +1,9 @@
 # Change History / Release Notes
+## Version 0.0.9
+* bug comparison with integer in area code modified
+
+## Version 0.0.8
+* bug when area less than 10 , added leading "0"
 
 ## Version 0.0.7
 * changed Phone constant labels   _formats to _formats_fr and _formats_fr_intl
