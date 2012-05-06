@@ -12,21 +12,21 @@ module Faker
         Faker::Base.numerify(Phone_formats_fr_intl[phone_area_code - 1])
       end
       
-      def fr_phone_number_in_region(region)
+      def fr_phone_number_in_region(region=nil)
         phone_area_code = Faker::Address.fr_zip_and_city_in_region(region)[4].to_i
         Faker::Base.numerify(Phone_formats_fr[phone_area_code - 1])
       end
-      def fr_phone_number_intl_in_region(region)
+      def fr_phone_number_intl_in_region(region=nil)
         phone_area_code = Faker::Address.fr_zip_and_city_in_region(region)[4].to_i
         Faker::Base.numerify(Phone_formats_fr_intl[phone_area_code - 1])
       end
 
-      def fr_phone_number_in_area(area)
-        phone_area_code = Faker::Address.fr_zip_and_city_in_area(area)[4].to_i
+      def fr_phone_number_in_departement(departement=nil)
+        phone_area_code = Faker::Address.fr_zip_and_city_in_area(departement)[4].to_i
         Faker::Base.numerify(Phone_formats_fr[phone_area_code - 1])
       end
-      def fr_phone_number_intl_in_area(area)
-        phone_area_code = Faker::Address.fr_zip_and_city_in_area(area)[4].to_i
+      def fr_phone_number_intl_in_departement(departement=nil)
+        phone_area_code = Faker::Address.fr_zip_and_city_in_area(departement)[4].to_i
         Faker::Base.numerify(Phone_formats_fr_intl[phone_area_code - 1])
       end
 

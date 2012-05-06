@@ -1,6 +1,11 @@
 # Change History / Release Notes
-## Version 0.0.9
-* bug comparison with integer in area code modified
+
+## Version 0.0.13
+* changed Region codes to INSEE codes ( see tables.text)
+* changed 'area' label to French 'departement'
+
+## Version 0.0.9 - Version 0.0.10 - Version 0.0.11- Version 0.0.12
+* debugging
 
 ## Version 0.0.8
 * bug when area less than 10 , added leading "0"

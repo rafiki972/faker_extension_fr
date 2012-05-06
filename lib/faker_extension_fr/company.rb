@@ -25,9 +25,11 @@ module Faker
         vat_number = "FR#{sClef} " + siren.to_s
       end
 
-      def fr_rcs(area="01")
-        area = "01" if Fr_rcs_registration[area.to_s].nil?
-        Fr_rcs_registration[area.to_s].sample
+      def fr_rcs(departement=nil)
+        departement = %w{2A 2B}.sample if departement == "20" || departement == 20 # Corsica special case
+        departement = "%02d" % departement if departement.is_a?(Integer)
+        departement = Fr_Departements.sample if departement.nil? || !Fr_Departements.include?(departement)
+        Fr_rcs_registration[departement].sample
       end
 
       def fr_ape(business_type=nil)
@@ -36,22 +38,22 @@ module Faker
         [ape_code, Fr_ape_label[ape_code] ]
       end
       
-      def fr_bank(area=nil, bank=nil)
+      def fr_bank(departement=nil, bank=nil)
         bank = %w{ SG LCL BNP CA Poste}.sample if bank.nil? || !%w{ SG LCL BNP CA Poste}.include?(bank)
         bank_name = Fr_banks[bank]['label']
         bank_iban = Fr_banks[bank]['IBAN']
         bank_bic = Fr_banks[bank]['BIC']
-        bank_location = Faker::Address.fr_zip_and_city_in_area(area)
+        bank_location = Faker::Address.fr_zip_and_city_in_departement(departement)
         bank_address = Faker::Address.fr_street_name
         [bank_name, bank_address, bank_location, bank_iban, bank_bic].flatten       
       end
 
-      def fr_bank_account(area=nil, bank=nil)
+      def fr_bank_account(departement=nil, bank=nil)
         bank = %w{ SG LCL BNP CA Poste}.sample if bank.nil? || !%w{ SG LCL BNP CA Poste}.include?(bank)
         bank_name = Fr_banks[bank]['label']
         bank_iban = Fr_banks[bank]['IBAN']
         bank_bic = Fr_banks[bank]['BIC']
-        bank_location = Faker::Address.fr_zip_and_city_in_area(area)
+        bank_location = Faker::Address.fr_zip_and_city_in_departement(departement)
         bank_address = Faker::Address.fr_street_name
         account_number = Faker::Base.numerify('00000######')
         sClef = (((account_number.to_i % 97) *3 ) + 12 ) % 97
@@ -70,6 +72,7 @@ module Faker
         [bank_name, bank_address, bank_location, bank_iban, bank_office, bank_account, iban_account, bic_swift ].flatten       
       end
 
+      Fr_Departements = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "2A", "2B"]
 
       Fr_rcs_registration = {"01" => ["Bourg-en-Bresse"], "02" => ["Saint-Quentin", "Soissons"], "03" => ["Cusset ", "Montluçon"], "04" => ["Manosque"], "05" => ["Gap"], "06" => ["Antibes", "Cannes", "Grasse", "Nice"], "07" => ["Aubenas"], "08" => ["Sedan"], "09" => ["Foix"], "10" => ["Troyes"], "11" => ["Carcassonne", "Narbonne"], "12" => ["Rodez"], "13" => ["Aix-en-Provence", "Marseille", "Salon-de-Provence", "Tarascon"], "14" => ["Caen", "Lisieux"], "15" => ["Aurillac"], "16" => ["Angoulême"], "17" => ["La Rochelle", "Saintes"], "18" => ["Bourges"], "19" => ["Brive-la-Gaillarde"], "20" => ["Ajaccio", "Bastia" ], "2A" => ["Ajaccio"], "2B" => ["Bastia"], "21" => ["Dijon"], "22" => ["Saint-Brieuc"], "23" => ["Guéret"], "24" => ["Bergerac", "Périgueux"], "25" => ["Besançon"], "26" => ["Romans-sur-Isère"], "27" => ["Evreux", "Bernay"], "28" => ["Chartres"], "29" => ["Brest", "Quimper"], "30" => ["Nîmes"], "31" => ["Toulouse"], "32" => ["Auch"], "33" => ["Bordeaux", "Libourne"], "34" => ["Béziers", "Montpellier"], "35" => ["Rennes", "Saint-Malo"], "36" => ["Châteauroux"], "37" => ["Tours"], "38" => ["Grenoble", "Vienne"], "39" => ["Lons-le-Saunier"], "40" => ["Dax", "Mont-de-Marsan"], "41" => ["Blois"], "42" => ["Roanne", "Saint-Etienne"], "43" => ["TC du Puy-en-Velay"], "44" => ["Nantes", "Saint-Nazaire"], "45" => ["Orléans"], "46" => ["Cahors"], "47" => ["Agen"], "48" => ["Mende"], "49" => ["Angers"], "50" => ["Cherbourg-Octeville", "Coutances"], "51" => ["Châlons-en-Champagne", "Reims"], "52" => ["Chaumont"], "53" => ["Laval"], "54" => ["Briey", "Nancy"], "55" => ["Bar-le-Duc"], "56" => ["Lorient", "Vannes"], "57" => ["Metz", "Sarreguemines", "Thionville"], "58" => ["Nevers"], "59" => ["Douai", "Dunkerque", "Lille", "Roubaix-Tourcoing", "Valenciennes"], "60" => ["Beauvais", "Compiègne"], "61" => ["Alençon"], "62" => ["Arras", "Boulogne-sur-Mer"], "63" => ["Clermont-Ferrand"], "64" => ["Bayonne", "Pau"], "65" => ["Tarbes"], "66" => ["Perpignan"], "67" => ["Saverne", "Strasbourg"], "68" => ["Colmar", "Mulhouse"], "69" => ["Lyon", "Villefranche-Tarare"], "70" => ["Vesoul"], "71" => ["Chalon-sur-Saône", "Mâcon"], "72" => ["Le Mans"], "73" => ["Chambéry"], "74" => ["Annecy", "Thonon-les-Bains"], "75" => ["Paris"], "76" => ["Dieppe", "Le Havre", "Rouen"], "77" => ["Meaux", "Melun"], "78" => ["Versailles"], "79" => ["Niort"], "80" => ["Amiens"], "81" => ["Albi", "Castres"], "82" => ["Montauban"], "83" => ["Draguignan", "Fréjus", "Toulon"], "84" => ["Avignon"], "85" => ["La Roche-sur-Yon"], "86" => ["Poitiers"], "87" => ["Limoges"], "88" => ["Epinal"], "89" => ["Auxerre", "Sens"], "90" => ["Belfort"], "91" => ["Evry"], "92" => ["Nanterre"], "93" => ["Bobigny"], "94" => ["Créteil"], "95" => ["Pontoise"], "971" => ["Pointe à Pitre", "Basse Terre"], "972" => ["Fort de France"], "973" => ["Cayenne"], "974" => ["Saint Denis de la Réunion"]}
 
