@@ -1,4 +1,8 @@
 # Change History / Release Notes
+## Version 0.0.16
+* modified  Faker::Address.fr_region
+* returns an array [ insee_code(string),  region label(string), region tel code(string) , departements in region(array)] 
+
 ## Version 0.0.15
 * added  Faker::Address.fr_region
 * returns an array [ insee_code(string),  region label(string), departements in region(array)] 
