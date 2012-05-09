@@ -42,8 +42,8 @@ module Faker
     Phone_formats_fr = [  '01########', '02########', '03########', '04########', '05########' ]
     Phone_formats_fr_intl = [  '+33(0)1########', '+33(0)2########', '+33(0)3########', '+33(0)4########', '+33(0)5########' ]
   	
-    Cellphone_formats_fr_intl = [ '+33(06)#######' ]
-    Cellphone_formats_fr = [ '(06)#######' ]
+    Cellphone_formats_fr_intl = [ '+33(0)6#######' ]
+    Cellphone_formats_fr = [ '(0)6#######' ]
   end
 end
 

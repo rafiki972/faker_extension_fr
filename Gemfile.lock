@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    faker_extension_fr (0.0.13)
+    faker_extension_fr (0.0.15)
       faker
       rails (>= 3.1)
 
@@ -45,7 +45,7 @@ GEM
     hike (1.2.1)
     i18n (0.6.0)
     journey (1.0.3)
-    json (1.7.0)
+    json (1.7.1)
     linecache19 (0.5.13)
       ruby_core_source (>= 0.1.4)
     mail (2.4.4)
