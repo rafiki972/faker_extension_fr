@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    faker_extension_fr (0.0.15)
+    faker_extension_fr (0.0.16)
       faker
       rails (>= 3.1)
 
