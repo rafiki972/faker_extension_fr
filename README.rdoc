@@ -10,96 +10,95 @@ Currently with
 
 Installation  ( gem faker   # must be installed )
 ============
-gem faker_extension_fr
+  gem faker_extension_fr
 
 Examples
 =======
 
 Standard Faker
-Faker::Lorem.paragraph
-Faker::Lorem.sentence
-Faker::Lorem.words(3).join(',')
+  Faker::Lorem.paragraph
+  Faker::Lorem.sentence
+  Faker::Lorem.words(3).join(',')
 
 
 You can get city data generated :
 
 1- Anywhere in France
-Faker::Address.fr_zip_and_city => ["43490", "Lafarre", "44.8427", "3.9897", "4"]
+  Faker::Address.fr_zip_and_city => ["43490", "Lafarre", "44.8427", "3.9897", "4"]
 2- In a specific Region
-Faker::Address.fr_zip_and_city_in_region(5) => ["29890", "Goulven", "48.6289", "-4.2994", "2"]
+  Faker::Address.fr_zip_and_city_in_region(5) => ["29890", "Goulven", "48.6289", "-4.2994", "2"]
 3- In a specific Area ( French 'Département' )
-Faker::Address.fr_zip_and_city_in_area("2A")  => ["20111", "Calcatoggio", "42.0287", "8.7681", "4"]
+  Faker::Address.fr_zip_and_city_in_area("2A")  => ["20111", "Calcatoggio", "42.0287", "8.7681", "4"]
 4- Street addresses with celebrities
-Faker::Address.fr_street_name  => "21, Place Ségur
+  Faker::Address.fr_street_name  => "21, Place Ségur
 
 Names are generated for female and male, with or without title
 
-User.populate 100 do |person|
-  person.name      = Faker::Name.fr_first_name_f               #  =>  "Christine"
-  person.name      = Faker::Name.fr_first_name_m               #  =>  "Pierre"
-  person.name      = Faker::Name.fr_last_name                  #  =>  "Leger"
-  person.name      = Faker::Name.fr_name                       #  =>  "Simon Maire"  ou  "Juliana Leduc"
-  person.name      = Faker::Name.fr_name_and_title             #  =>  "Mme Nadine Delattre"  ou  "Mr Paul Bouvier"
-  person.homephone = Faker::PhoneNumber.fr_phone_number
-  person.cellphone = Faker::PhoneNumber.fr_cellphone_number    
-  city_data        = Faker::Address.fr_zip_and_city_in_region(10)
-  person.zipcode   = city_data[0]   						   # => "78930"
-  person.city      = city_data[1]							   # => "Goussonville"
-  latitude         = city_data[2]							   # => "48.9201"
-  longitude        = city_data[3]							   # => "1.7644"
-  phone_area_code  = city_data[4]							   # => "1"
-end
+  User.populate 100 do |person|
+    person.name      = Faker::Name.fr_first_name_f               #  =>  "Christine"
+    person.name      = Faker::Name.fr_first_name_m               #  =>  "Pierre"
+    person.name      = Faker::Name.fr_last_name                  #  =>  "Leger"
+    person.name      = Faker::Name.fr_name                       #  =>  "Simon Maire"  ou  "Juliana Leduc"
+    person.name      = Faker::Name.fr_name_and_title             #  =>  "Mme Nadine Delattre"  ou  "Mr Paul Bouvier"
+    person.homephone = Faker::PhoneNumber.fr_phone_number
+    person.cellphone = Faker::PhoneNumber.fr_cellphone_number    
+    city_data        = Faker::Address.fr_zip_and_city_in_region(10)
+    person.zipcode   = city_data[0]   						   # => "78930"
+    person.city      = city_data[1]							   # => "Goussonville"
+    latitude         = city_data[2]							   # => "48.9201"
+    longitude        = city_data[3]							   # => "1.7644"
+    phone_area_code  = city_data[4]							   # => "1"
+  end
 
 You can also use directly :
 
-Faker::Address.fr_city  => "Arles" 
-Faker::Address.fr_zip_code  => "39380" 
-Faker::Address.fr_coordinates  => ["43.25", "6.21"] 
-Faker::Address.fr_phone_area  => "5" 
+  Faker::Address.fr_city  => "Arles" 
+  Faker::Address.fr_zip_code  => "39380" 
+  Faker::Address.fr_coordinates  => ["43.25", "6.21"] 
+  Faker::Address.fr_phone_area  => "5" 
 
 
 
 PHONE NUMBERS
 
-Faker::PhoneNumber.fr_phone_number => "0323822287"   (anywhere in France)
-Faker::PhoneNumber.fr_phone_number_intl  => "+33(0)357506949"  (anywhere in France)
-
-Faker::PhoneNumber.fr_phone_number_in_region(10) => "0159636104" 
-Faker::PhoneNumber.fr_phone_number_intl_in_region(10) => "+33(0)198436968
-
-Faker::PhoneNumber.fr_phone_number_in_area("2A")  => "0413776409"  
-Faker::PhoneNumber.fr_phone_number_intl_in_area("2A") => "+33(0)438380737" 
-
-Faker::PhoneNumber.fr_cellphone_number  => "+33(06)6211670" or  "(06)5903231"
-Faker::PhoneNumber.fr_cellphone_number  => "(06)5903231"
-Faker::PhoneNumber.fr_cellphone_number_intl  => "+33(06)6211670"
+  Faker::PhoneNumber.fr_phone_number => "0323822287"   (anywhere in France)
+  Faker::PhoneNumber.fr_phone_number_intl  => "+33(0)357506949"  (anywhere in France)
+  
+  Faker::PhoneNumber.fr_phone_number_in_region(10) => "0159636104" 
+  Faker::PhoneNumber.fr_phone_number_intl_in_region(10) => "+33(0)198436968
+  
+  Faker::PhoneNumber.fr_phone_number_in_area("2A")  => "0413776409"  
+  Faker::PhoneNumber.fr_phone_number_intl_in_area("2A") => "+33(0)438380737" 
+  
+  Faker::PhoneNumber.fr_cellphone_number  => "+33(06)6211670" or  "(06)5903231"
+  Faker::PhoneNumber.fr_cellphone_number  => "(06)5903231"
+  Faker::PhoneNumber.fr_cellphone_number_intl  => "+33(06)6211670"
 
 
              
 
 FRENCH COMPANIES
+  Faker::Company.fr_name  => "Libero SA" 
 
-Faker::Company.fr_name  => "Libero SA" 
-
-siren = Faker::Company.fr_siren => "423240936"    # 8 digits + 1 checksum digit according to Luhn algorithm
+  siren = Faker::Company.fr_siren => "423240936"    # 8 digits + 1 checksum digit according to Luhn algorithm
 #  you can format the siren nuber using : siren.scan(/.{1,3}/).join(' ')  => "423 240 936"
 
 SIRET number  based on SIREN + NIC (Internal sequential number in the company)
-siret = Faker::Company.fr_siret(siren)  =>  "42324093600017"  # 13 digits + 1 checksum digit according to Luhn algorithm
-siret = Faker::Company.fr_siret(siren, 3)   => "42324093600033"  third office of the company
+  siret = Faker::Company.fr_siret(siren)  =>  "42324093600017"  # 13 digits + 1 checksum digit according to Luhn algorithm
+  siret = Faker::Company.fr_siret(siren, 3)   => "42324093600033"  third office of the company
 
 VAT NUMBER,  FR+key + SIREN, key based on SIREN number
-Faker::Company.fr_vat_numbert(siren)  => "FR95 423240936" 
+  Faker::Company.fr_vat_numbert(siren)  => "FR95 423240936" 
 
 RCS REGISTRATION
-Faker::Company.fr_rcs(83) => "Draguignan" 
-Faker::Company.fr_rcs("2A") => "Ajaccio" 
+  Faker::Company.fr_rcs(83) => "Draguignan" 
+  Faker::Company.fr_rcs("2A") => "Ajaccio" 
 
 APE CODE & LABEL ( see tables.text )
-Faker::Company.fr_ape   => ["950Z", "Services domestiques"]
-
-Faker::Company.fr_ape(21)  => ["212E", "Fabrication d'articles en papier à usage sanitaire ou domestique"] 
-Faker::Company.fr_ape("21")  => ["212E", "Fabrication d'articles en papier à usage sanitaire ou domestique"] 
+  Faker::Company.fr_ape   => ["950Z", "Services domestiques"]
+  
+  Faker::Company.fr_ape(21)  => ["212E", "Fabrication d'articles en papier à usage sanitaire ou domestique"] 
+  Faker::Company.fr_ape("21")  => ["212E", "Fabrication d'articles en papier à usage sanitaire ou domestique"] 
 
 if the ape_code doesn't exist, then a random code will be returned ...
 
@@ -107,11 +106,11 @@ if the ape_code doesn't exist, then a random code will be returned ...
 
 BANK & BANK ACCOUNT
 
-Faker::Company.fr_bank   => ["BNP Paribas", "20, Impasse Eugène Sue", "33540", "Mauriac", "44.7453", "-0.0295", "5", "30004", "BNPAFRPP"]
+  Faker::Company.fr_bank   => ["BNP Paribas", "20, Impasse Eugène Sue", "33540", "Mauriac", "44.7453", "-0.0295", "5", "30004", "BNPAFRPP"]
 this returns :
 Bank name, bank street address, bank zipcode, bank city, bank longitude, tel_area, bank latitude, bank IBAN, bank BIC
 
-Faker::Company.fr_bank_account => ["Crédit Agricole", "8, Place Saint-Simon", "64870", "Escou", "43.1833", "-0.5333", "5", "18206", "00083", "00000576342 13", "FR43 1820 6000 8300 0005 7634 213", "FRAGRIFRPPESC"] 
+  Faker::Company.fr_bank_account => ["Crédit Agricole", "8, Place Saint-Simon", "64870", "Escou", "43.1833", "-0.5333", "5", "18206", "00083", "00000576342 13", "FR43 1820 6000 8300 0005 7634 213", "FRAGRIFRPPESC"] 
 
 this returns :
 Bank name, bank street address, bank zipcode, bank city, bank longitude, bank latitude, tel area, 
